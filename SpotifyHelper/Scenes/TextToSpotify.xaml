@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="SpotifyHelper.Scenes.TextToSpotify"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpotifyHelper.Scenes"
+             mc:Ignorable="d" 
+             d:DesignHeight="470" d:DesignWidth="800">
+    <Grid>
+        <Label Content="Text to playlist" Margin="0,68,0,0" FontSize="18" VerticalAlignment="Top" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="OnBack"/>
+        <Grid Margin="100,132,95,34">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="302*"/>
+                <ColumnDefinition Width="303*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="277*"/>
+                <RowDefinition Height="27*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="TrackTextBox" Margin="0,28,2,26" TextWrapping="Wrap" AcceptsReturn="True" Text="Paste songs here: Every song on a new line in the format: Artist - Song name" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" LostFocus="OnLostTextBoxFocus" Grid.RowSpan="2"/>
+            <Button x:Name="ParseText" Content="Process text" Margin="0,3,0,0" Click="OnParseText" HorizontalAlignment="Left" Width="74" VerticalAlignment="Top"/>
+            <Label x:Name="GeneralInfo" Content="General info" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
+            <DataGrid x:Name="TrackListGrid" Margin="3,28,0,26" Padding="0" IsReadOnly="True" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="False" Grid.RowSpan="2" Grid.Column="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="Artist" Binding="{Binding Artist}" Header="Artists" Width="*"/>
+                    <DataGridTextColumn x:Name="Title" Binding="{Binding Title}" Header="Title" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="SeperatorPattern" Text=" - " HorizontalAlignment="Right" Height="20" Margin="0,3,2,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="30"/>
+            <Label Content="Seperator pattern:" HorizontalAlignment="Right" Margin="0,0,34,0" VerticalAlignment="Top" Panel.ZIndex="3"/>
+            <Button Content="Process list" HorizontalAlignment="Right" Margin="0,3,0,0" VerticalAlignment="Top" Width="75" Click="ProcessList" Grid.Column="1"/>
+            <Button x:Name="RemoveTimestamps" Content="Remove timestamps" HorizontalAlignment="Right" Margin="0,0,0,3" Grid.Row="1" VerticalAlignment="Bottom" Click="RemoveTimestamps_Click"/>
+            <Button x:Name="RemoveFormatting" Content="remove &lt;a&gt;...&lt;/a&gt;" HorizontalAlignment="Right" Margin="0,0,116,3" Grid.Row="1" VerticalAlignment="Bottom" Click="RemoveFormatting_Click"/>
+        </Grid>
+    </Grid>
+</UserControl>
