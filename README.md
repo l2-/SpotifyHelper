@@ -10,6 +10,7 @@ For now it only support:
 To do:
 Improve UI. (eg. in-app browser for auth, user more spotify data like existing playlists)
 Add support for parsing songs from youtube playlist (link).
-...Endless possibillities right?
+...Endless possibilities right?
 
 THIS APPLICATION USES JohnnyCrazy's Spotify .NET WEB API https://github.com/JohnnyCrazy/SpotifyAPI-NET
+I made small adjustments to the spotify .net api and included those. For this to work you to download the original project and replace the files of which i have a modified version in this repo.
