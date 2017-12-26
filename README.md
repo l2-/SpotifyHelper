@@ -14,3 +14,5 @@ Add support for parsing songs from youtube playlist (link).
 
 THIS APPLICATION USES JohnnyCrazy's Spotify .NET WEB API https://github.com/JohnnyCrazy/SpotifyAPI-NET
 I made small adjustments to the spotify .net api and included those. For this to work you to download the original project and replace the files of which i have a modified version in this repo.
+
+The release folder includes a build .exe
